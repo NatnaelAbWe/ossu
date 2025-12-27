@@ -57,25 +57,48 @@ def decimal_binary_converter(num):
 
 # Approximation Method
 
-g = 0.0
-x = 54321
-e = 0.01
-i = 0.0001
-no_guess = 0
 
-while abs(g ** 2 - x) >= e and g ** 2 <= x:
-    g += i
-    no_guess += 1
 
-print("The number of guesses:",no_guess)
+def approximate_sqrt(g = 0.0,
+x = 54321,
+e = 0.01,
+i = 0.0001,
+no_guess = 0):
+    while abs(g ** 2 - x) >= e and g ** 2 <= x:
+        g += i
+        no_guess += 1
 
-if abs(g ** 2 - x) >= e:
-    print(f'failed on square root of {x}')
-    print(f'The last guess was {g}')
-    print(f'The last squared guess is {g*g}')
-else:
-    print(g, "is close to the sqrt of ",x)
+    print("The number of guesses:",no_guess)
 
-    ''' the big picture from this lecture is that don use == when comparing floating value and their might be a trade of f btwn the accuracy and the precision of the result and the approximation method becomes too slow when the number to be sqr rooted increases and the increment value too small'''
+    if abs(g ** 2 - x) >= e:
+        print(f'failed on square root of {x}')
+        print(f'The last guess was {g}')
+        print(f'The last squared guess is {g*g}')
+    else:
+        print(g, "is close to the sqrt of ",x)
+    
 
-    '''======================= THE END ==============================='''
+
+
+''' the big picture from this lecture is that don use == when comparing floating value and their might be a trade of f btwn the accuracy and the precision of the result and the approximation method becomes too slow when the number to be sqr rooted increases and the increment value too small'''
+
+    
+
+'''Finger Exercise Lecture 5
+Assume you are given a string variable named my_str. Write a piece of Python code that prints out a new string containing the even indexed characters of my_str. For example, if my_str = "abcdefg" then your code should print out aceg.'''
+
+def print_even_index_char(my_str):
+    new_str = ''
+    n = 0
+    len = len(my_str)
+
+    while n < len:
+        if n % 2 == 0:
+            new_str += my_str[n]
+    n += 1
+
+    print(new_str)
+
+
+
+'''======================= THE END ==============================='''
