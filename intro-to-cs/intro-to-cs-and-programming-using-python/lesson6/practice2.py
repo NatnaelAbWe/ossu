@@ -1,3 +1,5 @@
+# square root guessing 
+
 def guess_sqrt(num):
 
     x = num
@@ -31,6 +33,9 @@ def guess_sqrt(num):
 
 guess_sqrt(1.5)
 
+
+# cube root guessing
+
 def guess_qubert(num):
 
     x = num
@@ -62,3 +67,21 @@ def guess_qubert(num):
     print(guess * guess * guess)
 
 guess_qubert(-27)
+
+# newton raphson algorithm
+
+def newton_raphson(num):
+
+    epsilon = 0.01
+    k = num
+    guesses = k / 2.0
+    num_guesses = 0
+
+    while abs(guess * guess -k) >= epsilon:
+        num_guesses += 1
+        guess = guess - (((guess ** 2) -k) / (2 * guess))
+    print('num_guesses = ' + str(num_guesses))
+    print('square root of ' + str(k) + ' is about '+ str(guess))
+
+
+
