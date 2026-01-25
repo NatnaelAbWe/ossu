@@ -1,7 +1,6 @@
 def guess_sqrt(num):
 
     x = num
-    low = 0
     epsilon = 0.01
 
 
@@ -12,7 +11,7 @@ def guess_sqrt(num):
     else:
         low = x
         high = 1.0
-        
+
     guess = (high + low)/2.0
     num_guesses = 0 
 
@@ -21,7 +20,7 @@ def guess_sqrt(num):
             high = guess
         else:
             low = guess
-        print(f'The low becomes {low} and the high becomes {high}')
+        # print(f'The low becomes {low} and the high becomes {high}')
         
         guess = (high + low)/2.0
         num_guesses += 1
@@ -32,5 +31,34 @@ def guess_sqrt(num):
 
 guess_sqrt(1.5)
 
+def guess_qubert(num):
 
+    x = num
+    epsilon = 0.01
 
+    if x >= 1:
+        low = 0
+        high = x
+    else:
+
+        low = x
+        high = 1.0
+
+    guess = (low + high) / 2.0
+    num_guesses = 0
+
+    while abs(guess ** 3 - x ) >= epsilon:
+        if guess ** 3 > x:
+            high = guess
+        else:
+            low = guess
+        # print(f'The low becomes {low} and the high becomes {high}')
+        
+        guess = (high + low)/2.0
+        num_guesses += 1
+
+    print('num guesses =', num_guesses)
+    print(guess, 'is clone to cube root of', x)
+    print(guess * guess * guess)
+
+guess_qubert(-27)

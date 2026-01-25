@@ -59,11 +59,7 @@ def decimal_binary_converter(num):
 
 
 
-def approximate_sqrt(g = 0.0,
-x = 54321,
-e = 0.01,
-i = 0.0001,
-no_guess = 0):
+def approximate_sqrt(g = 0.0,x = 54321,e = 0.01,i = 0.0001, no_guess = 0):
     while abs(g ** 2 - x) >= e and g ** 2 <= x:
         g += i
         no_guess += 1
