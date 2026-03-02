@@ -15,6 +15,10 @@
 (check-expect (aspect-ratio I2) "square")
 (check-expect (aspect-ratio I3) "wide")
 
+(check-expect (aspect-ratio-con I1) "tall")
+(check-expect (aspect-ratio-con I2) "square")
+(check-expect (aspect-ratio-con I3) "wide")
+
 ;;(define (aspect-ratio img) "")      ;stub
 
 ;;(define (aspect-ratio img)          ;template
@@ -26,3 +30,10 @@
       (if (= (image-height img) (image-width img))
           "square"
           "wide")))
+
+(define (aspect-ratio-con img)
+  (cond [(> (image-height img) (image-width img)) "tall"]
+       [(= (image-height img) (image-width img)) "square"]
+       [else "wide"]
+       )
+  )
